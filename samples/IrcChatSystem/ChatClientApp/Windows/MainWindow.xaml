@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="SCS Chat Client" Height="517" Width="885" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Loaded="Window_Loaded" Icon="/ChatClientApp;component/Images/app_icon.ico">
     <Grid>
-        <Grid Background="#FF1F1F1F">
+        <Grid Background="#FF1F1F1F" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="240" />
@@ -48,7 +48,7 @@
             </StackPanel>
         </Grid>
         <Grid Background="White" Opacity="0.7" Name="grdConnect"></Grid>
-        <Border Width="300" Height="115" Padding="2" Name="brdConnect" KeyDown="LoginForm_KeyDown">
+        <Border Width="300" Height="150" Padding="2" Name="brdConnect" KeyDown="LoginForm_KeyDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="115" />
@@ -73,15 +73,18 @@
                         <RowDefinition Height="26"/>
                         <RowDefinition Height="26"/>
                         <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0" Content="Nick:" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Bold" />
-                    <Label Grid.Column="0" Grid.Row="1" Content="Server IP:" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Normal" />
-                    <Label Grid.Column="0" Grid.Row="2" Content="Server Port:" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Normal" />
-                    <TextBox Grid.Column="1" Grid.Row="0" Margin="2" Text="User Nick" FontWeight="Bold" VerticalContentAlignment="Center" Name="txtNick" TextChanged="txtNick_TextChanged"></TextBox>
-                    <TextBox Grid.Column="1" Grid.Row="1" Margin="2" Text="127.0.0.1" VerticalContentAlignment="Center" Name="txtServerIpAddress"></TextBox>
-                    <TextBox Grid.Column="1" Grid.Row="2" Margin="2" Text="10048" VerticalContentAlignment="Center" Name="txtServerPort"></TextBox>
-                    <Button Grid.Column="1" Content="Login" Grid.Row="3" Margin="2" FontSize="15" FontWeight="Bold" Name="btnLogin" Click="btnLogin_Click" />
+                    <Label Grid.Column="0" Grid.Row="0" Content="Username:" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Bold" />
+                    <Label Grid.Column="0" Grid.Row="1" Content="Password:" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Bold" />
+                    <Label Grid.Column="0" Grid.Row="2" Content="Server IP:" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Normal" />
+                    <Label Grid.Column="0" Grid.Row="3" Content="Server Port:" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Normal" />
+                    <TextBox     Grid.Column="1" Grid.Row="0" Margin="2" Name="txtNick"  Text="Username" FontWeight="Bold" VerticalContentAlignment="Center" TextChanged="txtNick_TextChanged"></TextBox>
+                    <PasswordBox Grid.Column="1" Grid.Row="1" Margin="2" Name="pwbPass" Password="123" />
+                    <TextBox     Grid.Column="1" Grid.Row="2" Margin="2" Name="txtServerIpAddress" Text="127.0.0.1" VerticalContentAlignment="Center" ></TextBox>
+                    <TextBox     Grid.Column="1" Grid.Row="3" Margin="2" Name="txtServerPort" Text="10048" VerticalContentAlignment="Center" ></TextBox>
+                    <Button      Grid.Column="1" Grid.Row="4" Margin="2" Name="btnLogin" Content="Login" FontSize="15" FontWeight="Bold"  Click="btnLogin_Click" />
                 </Grid>
             </Grid>
         </Border>
