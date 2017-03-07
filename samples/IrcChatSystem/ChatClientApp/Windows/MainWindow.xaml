@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="SCS Chat Client" Height="517" Width="885" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Loaded="Window_Loaded" Icon="/ChatClientApp;component/Images/app_icon.ico">
     <Grid>
-        <Grid Background="#FF1F1F1F" Visibility="Hidden">
+        <Grid Background="#FF1F1F1F" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="240" />
@@ -81,7 +81,7 @@
                     <Label Grid.Column="0" Grid.Row="2" Content="Server IP:" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Normal" />
                     <Label Grid.Column="0" Grid.Row="3" Content="Server Port:" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Normal" />
                     <TextBox     Grid.Column="1" Grid.Row="0" Margin="2" Name="txtNick"  Text="Username" FontWeight="Bold" VerticalContentAlignment="Center" TextChanged="txtNick_TextChanged"></TextBox>
-                    <PasswordBox Grid.Column="1" Grid.Row="1" Margin="2" Name="pwbPass" Password="123" />
+                    <PasswordBox Grid.Column="1" Grid.Row="1" Margin="2" Name="pwdBox" Password="123" MaxLength="64" PasswordChanged="pwdBox_PasswordChanged" />
                     <TextBox     Grid.Column="1" Grid.Row="2" Margin="2" Name="txtServerIpAddress" Text="127.0.0.1" VerticalContentAlignment="Center" ></TextBox>
                     <TextBox     Grid.Column="1" Grid.Row="3" Margin="2" Name="txtServerPort" Text="10048" VerticalContentAlignment="Center" ></TextBox>
                     <Button      Grid.Column="1" Grid.Row="4" Margin="2" Name="btnLogin" Content="Login" FontSize="15" FontWeight="Bold"  Click="btnLogin_Click" />

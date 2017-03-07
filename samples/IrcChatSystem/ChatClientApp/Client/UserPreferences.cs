@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Hik.Samples.Scs.IrcChat.Arguments;
+using System.Security;
 
 namespace Hik.Samples.Scs.IrcChat.Client
 {
@@ -37,6 +38,17 @@ namespace Hik.Samples.Scs.IrcChat.Client
         /// </summary>
         public string Nick { get; set; }
 
+
+        /// <summary>
+        /// Secure Password
+        /// </summary>
+        private SecureString securePassword;
+
+        public SecureString SecurePassword
+        {
+            get { return securePassword; }
+            set { securePassword = value; }
+        }
         /// <summary>
         /// Path of user's avatar file.
         /// </summary>

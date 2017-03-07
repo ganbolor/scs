@@ -249,6 +249,12 @@ namespace Hik.Samples.Scs.IrcChat.Windows
             lblCurrentUserNick.Content = txtNick.Text;
         }
 
+
+        private void pwdBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            _userPreferences.SecurePassword = ((PasswordBox)sender).SecurePassword;
+        }
+
         /// <summary>
         /// Handles Click event of 'Change to female' right menu item of avatar menu.
         /// Changes login avatar to default female avatar.
@@ -447,7 +453,9 @@ namespace Hik.Samples.Scs.IrcChat.Windows
             {
                 _controller.Connect();
                 _userPreferences.Nick = txtNick.Text;
+                _userPreferences.SecurePassword = ((PasswordBox)pwdBox).SecurePassword;
                 _userPreferences.ServerIpAddress = txtServerIpAddress.Text;
+                
                 try { _userPreferences.ServerTcpPort = Convert.ToInt32(txtServerPort.Text); } catch { }
                 _userPreferences.Save();
             }
@@ -695,5 +703,6 @@ namespace Hik.Samples.Scs.IrcChat.Windows
         }
 
         #endregion
+
     }
 }
