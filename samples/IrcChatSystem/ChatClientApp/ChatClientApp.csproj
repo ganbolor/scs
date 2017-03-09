@@ -42,10 +42,6 @@
     <ApplicationIcon>Images\app_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Scs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Binaries\Scs.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -141,6 +137,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Scs\Scs.csproj">
+      <Project>{0dc81b09-3abf-4bb3-8c08-4e8ee4432bdc}</Project>
+      <Name>Scs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ChatCommonLib\ChatCommonLib.csproj">
       <Project>{A57047DE-CC39-4C01-955E-D73888A0C83D}</Project>
       <Name>ChatCommonLib</Name>

@@ -178,6 +178,26 @@ namespace Hik.Communication.Scs.Client
             Disconnect();
         }
 
+
+        /// <summary>
+        /// Enable  / disable the pingtimer
+        /// https://github.com/hikalkan/scs/compare/master...zs2hx:master
+        /// </summary>
+
+        public bool PingTimer
+        {
+            set
+            {
+                if (value)
+                    _pingTimer.Start();
+                else
+                    _pingTimer.Stop();
+            }
+        }
+
+
+
+
         /// <summary>
         /// Sends a message to the server.
         /// </summary>

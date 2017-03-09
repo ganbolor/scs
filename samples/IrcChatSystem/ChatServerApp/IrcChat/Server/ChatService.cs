@@ -7,6 +7,7 @@ using Hik.Communication.ScsServices.Service;
 using Hik.Samples.Scs.IrcChat.Arguments;
 using Hik.Samples.Scs.IrcChat.Contracts;
 using Hik.Samples.Scs.IrcChat.Exceptions;
+using DevExpress.Xpo;
 
 namespace Hik.Samples.Scs.IrcChat.Server
 {
@@ -22,6 +23,8 @@ namespace Hik.Samples.Scs.IrcChat.Server
         /// It is usually raised when a new user log in or a user log out.
         /// </summary>
         public event EventHandler UserListChanged;
+
+        public Session session;
 
         #endregion
 

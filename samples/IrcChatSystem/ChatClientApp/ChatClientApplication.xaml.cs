@@ -9,6 +9,8 @@ namespace Hik.Samples.Scs.IrcChat
     /// </summary>
     public partial class ChatClientApplication : Application
     {
+
+
         public ChatClientApplication()
         {
             Startup += AppStartUp;
