@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security;
 
 namespace Hik.Samples.Scs.IrcChat.Arguments
 {
@@ -13,6 +14,9 @@ namespace Hik.Samples.Scs.IrcChat.Arguments
         /// Nick of user.
         /// </summary>
         public string Nick { get; set; }
+        //public string IpAddress { get; set; }
+        public string ComputerName { get; set; }
+        public string OSVersion { get; set; }
 
         /// <summary>
         /// Bytes of avatar of user.
@@ -23,5 +27,21 @@ namespace Hik.Samples.Scs.IrcChat.Arguments
         /// Status of user.
         /// </summary>
         public UserStatus Status { get; set; }
+
+
+        ///// <summary>
+        ///// Secure Password
+        ///// </summary>
+
+        public string UserName { get; set; }
+        public string SecurePassword { get; set; }
+
+        //private SecureString securePassword;
+
+        //public SecureString SecurePassword
+        //{
+        //    get { return securePassword; }
+        //    set { securePassword = value; }
+        //}
     }
 }

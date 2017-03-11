@@ -54,6 +54,7 @@ namespace Hik.Samples.Scs.IrcChat.Windows
                     new Func<UserInfo>(() => new UserInfo
                                              {
                                                  Nick = txtNick.Text,
+                                                 //IpAddress = txtNick.Text,
                                                  Status = UserStatus.Available,
                                                  AvatarBytes = GetBytesOfCurrentUserAvatar()
                                              }));
@@ -252,7 +253,7 @@ namespace Hik.Samples.Scs.IrcChat.Windows
 
         private void pwdBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            _userPreferences.SecurePassword = ((PasswordBox)sender).SecurePassword;
+            //_userPreferences.SecurePassword = ((PasswordBox)sender).SecurePassword;
         }
 
         /// <summary>

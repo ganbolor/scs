@@ -49,6 +49,8 @@ namespace Hik.Samples.Scs.IrcChat.Client
             get { return securePassword; }
             set { securePassword = value; }
         }
+
+
         /// <summary>
         /// Path of user's avatar file.
         /// </summary>

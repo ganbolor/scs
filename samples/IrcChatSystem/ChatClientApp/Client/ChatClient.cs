@@ -1,6 +1,7 @@
 ﻿using System;
 using Hik.Samples.Scs.IrcChat.Arguments;
 using Hik.Samples.Scs.IrcChat.Contracts;
+using System.Security;
 
 namespace Hik.Samples.Scs.IrcChat.Client
 {
