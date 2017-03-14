@@ -236,6 +236,12 @@ namespace Hik.Samples.Scs.IrcChat.Windows
         /// <param name="e">Event arguments</param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            e.Cancel = true;
+            this.Hide();
+        }
+
+        public void Exit()
+        {
             _userPreferences.Save();
             _controller.Disconnect();
         }
@@ -454,7 +460,7 @@ namespace Hik.Samples.Scs.IrcChat.Windows
             {
                 _controller.Connect();
                 _userPreferences.Nick = txtNick.Text;
-                _userPreferences.SecurePassword = ((PasswordBox)pwdBox).SecurePassword;
+                //_userPreferences.SecurePassword = ((PasswordBox)pwdBox).SecurePassword;
                 _userPreferences.ServerIpAddress = txtServerIpAddress.Text;
                 
                 try { _userPreferences.ServerTcpPort = Convert.ToInt32(txtServerPort.Text); } catch { }
@@ -464,6 +470,11 @@ namespace Hik.Samples.Scs.IrcChat.Windows
             {
                 MessageBox.Show("Can not connected to the server. Check Server IP and port. Error Detail: " + ex.Message, "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        public void AutoConnectToServer()
+        {
+            
         }
 
         /// <summary>

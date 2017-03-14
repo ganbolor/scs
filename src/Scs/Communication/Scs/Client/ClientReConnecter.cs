@@ -54,6 +54,7 @@ namespace Hik.Communication.Scs.Client
             _reconnectTimer = new Timer(20000);
             _reconnectTimer.Elapsed += ReconnectTimer_Elapsed;
             _reconnectTimer.Start();
+
         }
 
         /// <summary>

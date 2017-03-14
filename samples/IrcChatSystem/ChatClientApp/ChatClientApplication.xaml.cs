@@ -9,6 +9,7 @@ using System.Net;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Threading;
+using Hardcodet.Wpf.TaskbarNotification;
 
 namespace Hik.Samples.Scs.IrcChat
 {
@@ -19,18 +20,24 @@ namespace Hik.Samples.Scs.IrcChat
     {
         string myLanIP = "";
         string myInternetIP = "";
-        string myServerIP = "192.168.10.25";
+        string myServerIP = "192.168.11.8";
         string myServerPort = "22222";
         string myCheckInternet = "http://checkip.dyndns.org";
         int waitMinute = 1;
+
+        private TaskbarIcon notifyIcon;
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public ChatClientApplication()
         {
-            bool isRecheck= true;
+           
+
             while(isRecheck)
             {
                 //
-
-
+                
                 myLanIP = GetComputer_LanIP();
                 if(myLanIP=="" || myLanIP =="127.0.0.1")
                 {
@@ -57,7 +64,6 @@ namespace Hik.Samples.Scs.IrcChat
                     Console.WriteLine(myInternetIP);
                 }
                 
-
                 if(PingHost(myServerIP) ==false)
                 {
                     Console.WriteLine("Server holbolt alga");
@@ -68,10 +74,7 @@ namespace Hik.Samples.Scs.IrcChat
                 }
 
                 Console.WriteLine("Server Ok (" + myServerIP + ")");
-
                 
-
-
                 break;
             }
             
@@ -82,7 +85,7 @@ namespace Hik.Samples.Scs.IrcChat
             //server check
             
             //auto start
-            InstallMeOnStartUp();
+            //InstallMeOnStartUp();
 
             //
             Startup += AppStartUp;
@@ -92,13 +95,9 @@ namespace Hik.Samples.Scs.IrcChat
 
         static void AppStartUp(object sender, StartupEventArgs e)
         {
-            var controller = new ChatController();
-            var mainWindow = new MainWindow(controller);
-            controller.ChatRoom = mainWindow;
-            controller.LoginForm = mainWindow;
-            mainWindow.Show();
+            
         }
-
+        
         /// <summary>
         /// only one start
         /// http://pietschsoft.com/post/2009/01/Single-Instance-WPF-Application-in-NET-3
@@ -117,8 +116,15 @@ namespace Hik.Samples.Scs.IrcChat
             }
 
             base.OnStartup(e);
+
+            notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
         }
 
+        protected override void OnExit(ExitEventArgs e)
+        {
+            notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
+            base.OnExit(e);
+        }
 
         /// <summary>
         /// How to make an Application auto run on Windows startup
